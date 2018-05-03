@@ -83,7 +83,7 @@ def checkout(cart, coupons)
  
 
   cart_output.each do |item_name, item_details|
-    grand_total += item_details[:price]
+    grand_total += item_details[:price] * item_details[:count]
     
   end
   
