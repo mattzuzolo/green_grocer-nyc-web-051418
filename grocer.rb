@@ -69,10 +69,12 @@ def checkout(cart, coupons)
   
   #use same cart to apply all the different discounts onto otherwise it wont be totaled
   
-  grand_total = 0
+  
   # cart_output = consolidate_cart(cart)
   # apply_coupons(cart_output, coupons)
   # apply_clearance(cart_output)
+  
+  grand_total = 0
   
   consolidated_cart = consolidate_cart(cart)
   cart_after_coupons = apply_coupons(consolidated_cart, coupons)
@@ -81,12 +83,11 @@ def checkout(cart, coupons)
  
 
   cart_output.each do |item_name, item_details|
-    
-   # binding.pry
     grand_total += item_details[:price]
     
-    
   end
+  
+  binding.pry
   
   if grand_total > 100.00
     grand_total = ( grand_total * (0.90) ).round(2)
