@@ -22,38 +22,39 @@ end #end consolidate method
 def apply_coupons(cart, coupons)
   
   output_cart = {}
-  
-  
-  coupons.each do |coupon_details|
-      coupon_details.each do |coupon_detail_key, coupon_detail_value|
-          #binding.pry
-  
-        cart.each do |item_name, item_detail_pairs|
-          item_detail_pairs.each do |detail_key, detail_value|
+
+  cart.each do |item_name, item_detail_pairs|
+      item_detail_pairs.each do |detail_key, detail_value|
             
             
-            if detail_value == true && coupon_detail_value == item_name
-               
-             
-                
-               
-                cart["#{item_name} W/COUPON"] = {:price => coupon_details[:cost], :clearance => detail_value, :count => coupon_details[:num]}
-                
-                
-               
-              
-              
-              
-            end   #end if     
+      output_cart[item_name] = item_detail_pairs
+      
+      
+            
+        coupons.each do |coupon_details|
+              coupon_details.each do |coupon_detail_key, coupon_detail_value|
+            
+            
+            
+            
+                if detail_value == true && coupon_detail_value == item_name
+                  #binding.pry
+                    output_cart["#{item_name} W/COUPON"] = {:price => coupon_details[:cost], :clearance => detail_value, :count => (coupon_details[:num])}
+                    
+                    binding.pry
+                    output_cart[item_name][:count] = (output_cart[item_name][:count] - coupon_details[:num])
+                end   #end if     
           
-          end #item_detail_pair_each
-        end #cart each
+          
   
   
-      end #coupons details
-  end #coupons each
-  cart
- 
+              end #coupons details
+          end #coupons each
+  
+      end #item_detail_pair_each
+  end #cart each
+  output_cart
+  #binding.pry
   
 end #end apply_coupons
 
