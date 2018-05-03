@@ -75,12 +75,6 @@ def checkout(cart, coupons)
   apply_clearance(cart_output)
   
   grand_total = 0
-  
-  # consolidated_cart = consolidate_cart(cart)
-  # cart_after_coupons = apply_coupons(consolidated_cart, coupons)
-  # cart_after_clearance = apply_clearance(cart_after_coupons)
-  # cart_output = cart_after_clearance
- 
 
   cart_output.each do |item_name, item_details|
     
@@ -103,6 +97,12 @@ end
 
 
 
+  
+  # consolidated_cart = consolidate_cart(cart)
+  # cart_after_coupons = apply_coupons(consolidated_cart, coupons)
+  # cart_after_clearance = apply_clearance(cart_after_coupons)
+  # cart_output = cart_after_clearance
+ 
 
 
 
