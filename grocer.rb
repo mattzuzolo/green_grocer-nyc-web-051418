@@ -89,7 +89,7 @@ def checkout(cart, coupons)
     
   end
   
-  binding.pry
+  #binding.pry
   
   if grand_total > 100.00
     grand_total = ( grand_total * (0.90) ).round(2)
