@@ -70,9 +70,9 @@ def checkout(cart, coupons)
   #use same cart to apply all the different discounts onto otherwise it wont be totaled
   
   
-  # cart_output = consolidate_cart(cart)
-  # apply_coupons(cart_output, coupons)
-  # apply_clearance(cart_output)
+  cart_output = consolidate_cart(cart)
+  apply_coupons(cart_output, coupons)
+  apply_clearance(cart_output)
   
   grand_total = 0
   
