@@ -48,10 +48,6 @@ def apply_clearance(cart)
 
   cart.each do |item_name, item_detail_pairs|
      
-      
-      
-<<<<<<< HEAD
-            
         coupons.each do |coupon_details|
               coupon_details.each do |coupon_detail_key, coupon_detail_value|
             
@@ -80,7 +76,7 @@ def apply_clearance(cart)
   #binding.pry
   
 end #end apply_coupons
-=======
+
        # binding.pry
          if item_detail_pairs[:clearance] == true
            item_detail_pairs[:price] = ( item_detail_pairs[:price] *(0.8) ).round(2)
@@ -89,7 +85,7 @@ end #end apply_coupons
   cart
  # binding.pry
 end #end method
->>>>>>> e34ecbf70d99c105fcfbe33ef88ef51ff38854e2
+
 
 
 
@@ -106,8 +102,8 @@ def checkout(cart, coupons)
   # apply_coupons(cart_output, coupons)
   # apply_clearance(cart_output)
   
-  consolidate_cart = consolidate_cart(cart)
-  cart_after_coupons = apply_coupons(consolidate_cart, coupons)
+  consolidated_cart = consolidate_cart(cart)
+  cart_after_coupons = apply_coupons(consolidated_cart, coupons)
   cart_after_clearance = apply_clearance(cart_after_coupons)
   cart_output = cart_after_clearance
  
