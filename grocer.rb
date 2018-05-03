@@ -36,13 +36,16 @@ def apply_coupons(cart, coupons)
             
             
             
-     #binding.pry
+     
                 if (detail_value == true) && (coupon_detail_value == item_name) && (coupon_details[:num] <= item_detail_pairs[:count])
-                  #binding.pry
+                  
+                  binding.pry
+           
                     output_cart["#{item_name} W/COUPON"] = {:price => coupon_details[:cost], :clearance => detail_value, :count => (output_cart[item_name][:count] / coupon_details[:num])}
                     
-              
+                    binding.pry
                     output_cart[item_name][:count] = (output_cart[item_name][:count] % coupon_details[:num])
+                    binding.pry
                 end   #end if     
           
           
@@ -66,10 +69,57 @@ end #end apply_coupons
 
 
 
-def apply_clearance(cart)
-  # code here
-end
+# def apply_clearance(cart)
+  
+#   output_cart = {}
+  
+#   cart.each do |item_name, item_detail_pairs|
+#     item_detail_pairs.each do |item_detail_key, item_detail_value|
+    
+#         if item_detail_key[:clearance] == true
+#           binding.key
+          
+#           output_cart[item_name] = {:price => ( cart[:price] * .8 ), :clearance => detail_value, :count => (output_cart[item_name][:count] / coupon_details[:num])}
+          
+#         end #end if on clearance
+        
+#     end #end item_detail_pairs.each
+#   end #end cart.each
+  
+# end #end cart
+
+
+
+
+
 
 def checkout(cart, coupons)
   # code here
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
