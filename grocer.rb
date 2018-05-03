@@ -6,20 +6,19 @@ def consolidate_cart(cart)
   keys_arrays = []
   
   cart.each do |cart_item|
-    keys_arrays << cart_item.keys
       cart_item.each do |item, details|
         
-          
-        
+           
+            
             
             consolidated_hash[item] = details
-            consolidated_hash[item][:count] = "150" #find a way to update this based on cart
+            consolidated_hash[item][:count] = (cart.count {|i| i.to_s.include?(item)}) #find a way to update this based on cart
             
 
       end #end cart_item.each
 
   end #end cart.each
-  binding.pry
+  #binding.pry
   consolidated_hash
   
   
