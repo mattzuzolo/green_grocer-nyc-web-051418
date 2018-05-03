@@ -48,35 +48,8 @@ def apply_clearance(cart)
 
   cart.each do |item_name, item_detail_pairs|
      
-        coupons.each do |coupon_details|
-              coupon_details.each do |coupon_detail_key, coupon_detail_value|
-            
-            
-             binding.pry
-     
-                if (item_detail_pairs[:clearance] == true) && (coupon_detail_value == item_name) && (coupon_details[:num] <= item_detail_pairs[:count])
-                #  binding.pry
-                   
-                    output_cart["#{item_name} W/COUPON"] = {:price => coupon_details[:cost], :clearance => item_detail_pairs[:clearance], :count => (output_cart[item_name][:count] / coupon_details[:num])}
-                   # binding.pry
-            
-                    output_cart[item_name][:count] = (output_cart[item_name][:count] % coupon_details[:num])
-                   #binding.pry
-                end   #end if     
-                #  cart[name][:count] -= coupon[:num]
-          
-  
-  
-              end #coupons details
-          end #coupons each
-  
-      end #item_detail_pair_each
-  end #cart each
-  output_cart
-  #binding.pry
-  
-end #end apply_coupons
-
+      
+      
        # binding.pry
          if item_detail_pairs[:clearance] == true
            item_detail_pairs[:price] = ( item_detail_pairs[:price] *(0.8) ).round(2)
@@ -85,7 +58,6 @@ end #end apply_coupons
   cart
  # binding.pry
 end #end method
-
 
 
 
@@ -102,8 +74,8 @@ def checkout(cart, coupons)
   # apply_coupons(cart_output, coupons)
   # apply_clearance(cart_output)
   
-  consolidated_cart = consolidate_cart(cart)
-  cart_after_coupons = apply_coupons(consolidated_cart, coupons)
+  consolidate_cart = consolidate_cart(cart)
+  cart_after_coupons = apply_coupons(consolidate_cart, coupons)
   cart_after_clearance = apply_clearance(cart_after_coupons)
   cart_output = cart_after_clearance
  
