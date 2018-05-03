@@ -91,7 +91,7 @@ def checkout(cart, coupons)
   end  
   #binding.pry
   
-  #grand_total
+  grand_total
 end
 
 
