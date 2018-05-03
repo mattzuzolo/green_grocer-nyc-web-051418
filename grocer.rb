@@ -76,6 +76,7 @@ def checkout(cart, coupons)
   
   grand_total = 0
 
+  binding.pry
   cart_output.each do |item_name, item_details|
     
     #have to get price AND count otherwise items aren't charged repeatedly
