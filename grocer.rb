@@ -35,19 +35,18 @@ def apply_coupons(cart, coupons)
               coupon_details.each do |coupon_detail_key, coupon_detail_value|
             
             
-            
+             binding.pry
      
-                if (detail_value == true) && (coupon_detail_value == item_name) && (coupon_details[:num] <= item_detail_pairs[:count])
-                  
-                  binding.pry
-           
-                    output_cart["#{item_name} W/COUPON"] = {:price => coupon_details[:cost], :clearance => detail_value, :count => (output_cart[item_name][:count] / coupon_details[:num])}
-                    
-                    binding.pry
+                if (item_detail_pairs[:clearance] == true) && (coupon_detail_value == item_name) && (coupon_details[:num] <= item_detail_pairs[:count])
+                #  binding.pry
+                   
+                    output_cart["#{item_name} W/COUPON"] = {:price => coupon_details[:cost], :clearance => item_detail_pairs[:clearance], :count => (output_cart[item_name][:count] / coupon_details[:num])}
+                   # binding.pry
+            
                     output_cart[item_name][:count] = (output_cart[item_name][:count] % coupon_details[:num])
-                    binding.pry
+                   #binding.pry
                 end   #end if     
-          
+                #  cart[name][:count] -= coupon[:num]
           
   
   

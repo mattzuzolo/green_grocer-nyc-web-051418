@@ -149,7 +149,7 @@ describe "Grocer" do
         expect(two_coupon_result["AVOCADO"][:price]).to eq(3.00)
         expect(two_coupon_result["AVOCADO W/COUPON"][:count]).to eq(2)
       end
-    end
+     end
   end
 
   describe "#apply_clearance" do
