@@ -83,6 +83,8 @@ def checkout(cart, coupons)
  
 
   cart_output.each do |item_name, item_details|
+    
+    #have to get price AND count otherwise items aren't charged repeatedly
     grand_total += item_details[:price] * item_details[:count]
     
   end
