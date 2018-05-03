@@ -2,24 +2,26 @@ require 'pry'
 
 def consolidate_cart(cart)
   
-  cart.each do |cart_item|
-    cart_item.each do |item, details|
-      cart_item.each_with_object(Hash.new(0)) { |item,details| counts[item] += 1 }
-    
-    binding.pry
-    
-    end #end cart_item.each
-  end #end cart.each
-    
+  consolidated_hash = {}
+  final_cart =[]
   
-  # cart.each do |cart_item|
-  #     cart_item.each do |item, details|
-  #         details.each do |key, value|
+  cart.each do |cart_item|
+      cart_item.each do |item, details|
+        
+
+            consolidated_hash[item] = details
+            consolidated_hash[item][:count] = "150" #find a way to update this based on cart
+            #binding.pry
             
-  #   binding.pry
-  #         end #end details each 
-  #     end #end cart_item.each
-  # end #end cart.each
+            
+            
+          
+          
+      end #end cart_item.each
+  end #end cart.each
+  
+  consolidated_hash
+  binding.pry
   
 end #end consolidate method
 
